@@ -1,10 +1,12 @@
+import Products from "../general/Products";
+
 const Shop = () => {
   return (
     <>
       <h1>Shop</h1>
-      <p>Products coming soon...</p>
+      <Products />
     </>
   );
 };
 
-export default Shop
+export default Shop;

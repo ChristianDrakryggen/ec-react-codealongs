@@ -5,7 +5,7 @@ import { BasketContext } from "../../context/BasketContext";
 
 const Navbar = () => {
   const { loggedIn, setLoggedIn, setUser } = useContext(UserContext);
-  const { basketVisible, setBasketVisible } = useContext(BasketContext);
+  const { basket, basketVisible, setBasketVisible } = useContext(BasketContext);
 
   const navigate = useNavigate();
 
@@ -57,6 +57,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div>
+          <span>Items: {basket.length}</span>
           {handleBasketVisibility()}
           <button onClick={handleLogOut} style={buttonStyle}>
             Logout
@@ -83,7 +84,10 @@ const Navbar = () => {
             Register
           </Link>
         </div>
-        <div>{handleBasketVisibility()}</div>
+        <div>
+          <span>Items: {basket.length}</span>
+          {handleBasketVisibility()}
+        </div>
       </nav>
     );
   };

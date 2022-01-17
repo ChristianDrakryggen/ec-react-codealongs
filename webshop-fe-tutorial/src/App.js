@@ -5,6 +5,8 @@ import Account from "./components/views/Account";
 import Checkout from "./components/views/Checkout";
 import Login from "./components/views/Login";
 import Register from "./components/views/Register";
+import PrivateRoute from "./components/hocs/PrivateRoute";
+import UnPrivateRoute from "./components/hocs/UnPrivateRoute";
 
 function App() {
   return (
@@ -12,11 +14,39 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Shop />} />
-          <Route path="account" element={<Account />} />
+          <Route
+            path="account"
+            element={
+              <PrivateRoute>
+                <Account />
+              </PrivateRoute>
+            }
+          />
           <Route path="checkout" element={<Checkout />} />
-          <Route path="login" element={<Login />} />
-          <Route path="login/:firstname/:lastname" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route
+            path="login"
+            element={
+              <UnPrivateRoute>
+                <Login />
+              </UnPrivateRoute>
+            }
+          />
+          <Route
+            path="login/:firstname/:lastname"
+            element={
+              <UnPrivateRoute>
+                <Login />
+              </UnPrivateRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <UnPrivateRoute>
+                <Register />
+              </UnPrivateRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

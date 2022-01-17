@@ -6,6 +6,8 @@ const BasketProvider = ({ children }) => {
   const [basket, setBasket] = useState([]);
   const [basketVisible, setBasketVisible] = useState(false);
 
+  console.log(basket);
+
   return (
     <>
       <BasketContext.Provider
